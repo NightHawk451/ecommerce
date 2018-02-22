@@ -1,0 +1,12 @@
+
+1. Backup Fixtures
+python .\manage.py dumpdata products --format json --indent 4 >> .\products\f
+ixtures\
+
+2. python .\manage.py loaddata products/fixtures/products.json
+
+If you get the error - "UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte"
+
+Open the file up in notepad++, encoding -> Encode in UTF-8. Save file. Run again 
+
+https://groups.google.com/forum/#!topic/django-users/NAHD058Gh_Q

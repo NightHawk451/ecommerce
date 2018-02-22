@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.db.models.signals import pre_save, post_save
 from django.urls import reverse
 
-from .utils import unique_slug_generator
+from ecommerce.utils import unique_slug_generator
 
 # Create your models here.
 def get_filename_ext(filepath):
@@ -70,6 +70,10 @@ class Product(models.Model):
         return reverse("products:detail",kwargs={"slug":self.slug})
 
     def __str__(self): #makes the name of product the title
+        return self.title
+
+    @property
+    def name(self):
         return self.title
 
 def product_pre_save_receiver(sender, instance, *args, **kwargs):
